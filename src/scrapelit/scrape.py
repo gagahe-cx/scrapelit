@@ -4,7 +4,7 @@ Written by: Yijia (Gaga) He
 
 import time
 import requests
-import lxml.htmlx
+import lxml.html
 from urllib.parse import urlparse
 
 
@@ -164,7 +164,7 @@ def crawl_each_paper(url):
     return results
 
 
-def crawl(keyword: list[str], start_year: str, end_year: str, limit: int) -> dict:
+def crawl(keyword, start_year, end_year, limit):
     search_url = filter_url_with_words(keyword, start_year, end_year)
     count = 0
     result = []
