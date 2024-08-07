@@ -4,19 +4,9 @@ Written by: Yijia (Gaga) He
 
 import time
 import requests
-import os
-import re
-import json
-import sys
-import pathlib
-import pandas as pd
 import lxml.htmlx
 from urllib.parse import urlparse
-from bs4 import BeautifulSoup
-from selenium import webdriver
-from selenium.webdriver.chrome.service import Service
-from selenium.webdriver.chrome.options import Options
-from webdriver_manager.chrome import ChromeDriverManager
+
 
 ALLOWED_DOMAINS = ("https://pubmed.ncbi.nlm.nih.gov/",)
 REQUEST_DELAY = 1
@@ -54,7 +44,8 @@ def make_link_absolute(rel_url, current_url):
 
     Parameters:
         * rel_url:      a URL or fragment
-        * current_url:  a complete URL used to make the request that contained a link to rel_url
+        * current_url:  a complete URL used to make the request that contained
+        a link to rel_url
 
     Returns:
         A full URL with protocol & domain that refers to rel_url.
@@ -152,7 +143,8 @@ def crawl_each_paper(url):
     root = lxml.html.fromstring(response.content)
 
     queries = {
-        "PubMed_ID": '//span[@class="id-label" and contains(text(), "PMID:")]/following-sibling::strong[@class="current-id"]/text()',
+        "PubMed_ID": '//span[@class="id-label" and contains(text(), "PMID:")]/\
+        following-sibling::strong[@class="current-id"]/text()',
         "Title": '//h1[@class="heading-title"]/text()',
         "Citation_Year": '//span[@class="citation-year"]//text()',
         "Authors": "//a[@class='full-name']/@data-ga-label",
