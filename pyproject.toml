@@ -1,0 +1,28 @@
+[tool.poetry]
+name = "scrapelit"
+version = "0.1.0"
+description = ""
+authors = ["Gaga He <yijiah@uchicago.edu>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.10"
+requests = "^2.32.3"
+pandas = "^2.2.2"
+lxml = "^5.2.2"
+beautifulsoup4 = "^4.12.3"
+selenium = "^4.23.1"
+webdriver-manager = "^4.0.2"
+
+
+[tool.poetry.group.dev.dependencies]
+pre-commit = "^3.8.0"
+ruff = "^0.5.6"
+mypy = "^1.11.1"
+types-requests = "^2.32.0.20240712"
+lxml-stubs = "^0.5.1"
+pytest = "^8.3.2"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
